@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+# dat103
+=======
 # DAT 103 - Datamaskiner og operativsystem
 
 ## Introduction
@@ -10,3 +13,4 @@ Faget gir også brukerkunnskap om Unix operativsystem og en innføring i skallpr
 ## Content
 
 Innholdet vil være en variasjon av Bash og Assembly programmer utført i faget.
+>>>>>>> 09031277bcaf527ce27f7dd11d18b32c71d774f7
