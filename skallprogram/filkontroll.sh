@@ -1,37 +1,66 @@
-#!/bin/bash
+#! /bin/bash
 
-fil=$1
-tid=$2
-
-while true; 
-
-do
-
-#Sjekk om filen er opprettet
 	if [ -a $1 ];
 
-	then echo "Filen $1 er opprettet"
+	then 
+	
+	#While løkke for å monitorere
 
-#While løkke dersom filen eksisterer	
+	GMLFIL=$(stat $1 -c%Y)
+
+		while true
+
+			do
+
+	sleep $2
+
+
+#Sjekk om filen er slettet
+
+	if [ ! -f $1 ];
+
+	then echo "Filen $1 er slettet"
+
+	exit 0
 
 	else
 
-	echo "Filen er slettet"
-
-	fi
-
-#Sjekk om filen er slettet
-	#if [ not -a $1 ];
 	
-	#then echo "Filen er slettet"
-
-	#fi
 
 #Sjekk om filen er blitt endret
-	if [ -N $1 ];
+
+	NYFIL=$(stat $1 -c%Y)
+
+		if [[ $GMLFIL != $NYFIL ]]; 
 
 	then echo "Filen er endret siden forrige kontroll"
+
+	exit 0
 	
 	fi
+fi
 
 done
+
+
+	else
+
+	#While løkke for å sjekk om filen blir opprettet exit 0
+
+	while [ ! -f $1 ];
+
+
+
+	do
+
+		echo "test"
+sleep $2
+
+done
+
+fi
+
+echo "Filen er opprettet"
+
+
+
